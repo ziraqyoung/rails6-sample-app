@@ -1,0 +1,16 @@
+<header class="bg-gray-900 text-white">
+  <div class="max-w-screen-lg mx-auto">
+    <div class="flex justify-between items-center">
+      <div class="">
+        <%= link_to 'Sample App', root_path, id: 'logo', class: 'inline-block py-2 text-2xl font-bold hover:text-gray-200' %>
+      </div>
+
+      <nav class="flex items-center">
+        <%= link_to 'Home', root_path, class: 'ml-2 inline-block px-3 py-1 rounded-lg underline text-white hover:bg-gray-800 hover:no-underline' %>
+        <%= link_to 'Help', help_path, class: 'ml-2 inline-block px-3 py-1 rounded-lg underline text-white hover:bg-gray-800 hover:no-underline' %>
+        <%= link_to 'Login', '#', class: 'ml-2 inline-block px-3 py-1 rounded-lg underline text-white hover:bg-gray-800 hover:no-underline' %>
+      </nav>
+    </div>
+  </div>
+</header>
+
