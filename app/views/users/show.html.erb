@@ -1,0 +1,9 @@
+<% provide :title, @user.name %>
+<div>
+  <aside>
+    <section class="user_info flex items-center">
+      <%= gravatar_for @user %>
+      <h1 class="pl-3 text-3xl font-bold tracking-tight"><%= @user.name %></h1>
+    </section>
+  </aside>
+</div>
