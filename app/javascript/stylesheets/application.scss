@@ -1,12 +1,5 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
-a {
-  @apply underline;
-}
-
-a:hover {
-  @apply no-underline;
-}
 
 .field_with_errors {
   input {
