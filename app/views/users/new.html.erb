@@ -37,7 +37,10 @@
       <div class="pt-3">
         <%= f.submit 'Create my account', class: 'px-3 py-2 bg-teal-600 text-white rounded-lg shadow-lg hover:bg-teal-700 cursor-pointer uppercase tracking-tighter' %>
       </div>
-
     <% end %>
+
+    <div class="pt-3">
+      <p class="text-xs">Already have an account? <%= link_to 'Log in', login_path, class: 'text-base pl-2' %></p>
+    </div>
   </div>
 </div>
