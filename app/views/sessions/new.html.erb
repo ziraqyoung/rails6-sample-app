@@ -19,6 +19,19 @@
         <%= f.password_field :password, placeholder: 'Password...', class: 'px-3 py-2 w-full placeholder-gray-800 rounded-lg border bg-gray-300 focus:shadow-md focus:border-gray-500' %>
       </div>
 
+      <div class="pb-4 flex flex-col">
+        <%= f.label :remember_me, class: 'text-xs font-bold' do %>
+          <span class="flex items-center">
+            <span>
+              <%= f.check_box :remember_me, class: 'px-3 py-2' %>
+            </span>
+            <span class="ml-2 text-gray-700">Remember me on this computer</span>
+          </span>
+        <% end %>
+      </div>
+
+
+
       <div class="pt-3">
         <%= f.submit 'Log in', class: 'px-3 py-2 bg-teal-600 text-white rounded-lg shadow-lg hover:bg-teal-700 cursor-pointer uppercase tracking-tighter' %>
       </div>
