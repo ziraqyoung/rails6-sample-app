@@ -1,45 +1,13 @@
 <% provide :title, 'Sign up' %>
+<% provide :button_text, 'Create my account' %>
+
 <h1 class="text-3xl font-bold text-center">Sign up</h1>
 
 <div class="max-w-screen-md mx-auto pb-8">
   <div class="px-4 py-3 bg-gray-100 rounded-lg shadow-md">
-    <%= form_with model: @user, local: true do |f| %>
-      <%= render 'shared/error_messages' %>
+    <%= render 'form' %>
 
-      <div class="pb-4 flex flex-col">
-        <span class="pb-2">
-          <%= f.label :name, class: 'text-xs font-bold' %>
-        </span>
-        <%= f.text_field :name, placeholder: 'Name...', class: 'px-3 py-2 w-full placeholder-gray-800 rounded-lg border bg-gray-300 focus:shadow-md focus:border-gray-500' %>
-      </div>
-
-      <div class="pb-4 flex flex-col">
-        <span class="pb-2">
-          <%= f.label :email, class: 'text-xs font-bold' %>
-        </span>
-        <%= f.email_field :email, placeholder: 'Email...', class: 'px-3 py-2 w-full placeholder-gray-800 rounded-lg border bg-gray-300 focus:shadow-md focus:border-gray-500' %>
-      </div>
-
-      <div class="pb-4 flex flex-col">
-        <span class="pb-2">
-          <%= f.label :password, class: 'text-xs font-bold' %>
-        </span>
-        <%= f.password_field :password, placeholder: 'Password...', class: 'px-3 py-2 w-full placeholder-gray-800 rounded-lg border bg-gray-300 focus:shadow-md focus:border-gray-500' %>
-      </div>
-
-      <div class="pb-4 flex flex-col">
-        <span class="pb-2">
-          <%= f.label :password_confirmation, class: 'text-xs font-bold' %>
-        </span>
-        <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation',class: 'px-3 py-2 w-full placeholder-gray-800 rounded-lg border bg-gray-300 focus:shadow-md focus:border-gray-500' %>
-      </div>
-
-      <div class="pt-3">
-        <%= f.submit 'Create my account', class: 'px-3 py-2 bg-teal-600 text-white rounded-lg shadow-lg hover:bg-teal-700 cursor-pointer uppercase tracking-tighter' %>
-      </div>
-    <% end %>
-
-    <div class="pt-3">
+   <div class="pt-3">
       <p class="text-xs">Already have an account? <%= link_to 'Log in', login_path, class: 'text-base pl-2' %></p>
     </div>
   </div>

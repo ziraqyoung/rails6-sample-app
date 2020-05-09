@@ -1,0 +1,14 @@
+<% provide :title, 'Edit user' %>
+<% provide :button_text, 'Save changes' %>
+<h1 class="text-3xl font-bold text-center">Update your profile</h1>
+
+<div class="max-w-screen-md mx-auto pb-8">
+  <div class="px-4 py-3 bg-gray-100 rounded-lg shadow-md">
+    <%= render 'form' %>
+
+    <div class="gravatar_edit flex pt-4">
+      <%= gravatar_for @user %>
+      <a class="ml-3 underline hover:no-underline" href="https://gravatar.com/email" target="_blank" rel="noopener">change</a>
+    </div>
+  </div>
+</div>

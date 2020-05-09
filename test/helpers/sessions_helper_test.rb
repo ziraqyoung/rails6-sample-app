@@ -3,7 +3,7 @@ require 'test_helper'
 class SessionsHelperTest < ActionView::TestCase
   def setup
     @user = users(:michael)
-    remember @user
+    remember(@user)
   end
 
   test 'current_user return correct user when session is nil' do
