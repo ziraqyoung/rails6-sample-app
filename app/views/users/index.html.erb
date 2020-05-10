@@ -1,13 +1,25 @@
 <% provide :title, 'All users' %>
+<h1 class="text-3xl font-bold text-center">All Users</h1>
 
-<h1>All Users</h1>
+<div class="pb-4">
+  <%= will_paginate %>
+</div>
 
 <ul>
   <% @users.each do |user| %>
-    <li>
-      <%= gravatar_for user, size: 50 %>
-      <%= link_to user.name, user %>
+    <li class="border-b mb-2 pb-2">
+      <div class="flex items-center">
+        <div>
+          <%= image_tag user_avatar_url(user, size: 50), class: 'h-16 w-16 p-1 rounded-full border' %>
+        </div>
+        <div class="pl-3">
+          <%= link_to user.name, user, class: 'underline hover:no-underline' %>
+        </div>
+      </div>
     </li>
-
   <% end %>
 </ul>
+
+<div class="py-2">
+  <%= will_paginate %>
+</div>

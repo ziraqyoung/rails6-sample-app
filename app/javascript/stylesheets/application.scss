@@ -7,4 +7,37 @@
   }
 }
 
+.pagination {
+  @apply inline-block border-t border-b;
+
+  a,
+  em,
+  span {
+    @apply ml-2 px-2 border;
+  }
+  
+  .previous_page {
+    @apply ml-0;
+  }
+
+  span.previous_page {
+    @apply border-l;
+    
+  }
+
+  span.next_page {
+    @apply border-l;
+    
+  }
+
+  .current,
+  .disabled {
+    @apply ml-0 border-0;
+  }
+
+  a {
+    @apply bg-gray-200 text-gray-700;
+  }
+}
+
 @import "tailwindcss/utilities";

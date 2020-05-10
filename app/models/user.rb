@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # or self.email = email.downcase (required during assignment)
   before_save { email.downcase! }
   has_secure_password
+  has_one_attached :avatar
 
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

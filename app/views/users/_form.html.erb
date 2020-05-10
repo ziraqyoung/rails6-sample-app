@@ -1,6 +1,20 @@
     <%= form_with model: @user, local: true do |f| %>
       <%= render 'shared/error_messages' %>
 
+      <% if params[:controller] == 'users' && params[:action] == 'edit' %>
+        <div class="py-4 flex items-center">
+          <div class="pb-2">
+            <%= f.label :avatar, class: 'text-xs font-bold' do %>
+              <%= image_tag user_avatar_url(f.object, size: 100), class: 'p-1 h-24 w-24 rounded-full border' %>
+            <% end %>
+          </div>
+          <div class="ml-4">
+            <%= f.file_field :avatar %>
+          </div>
+        </div>
+      <% end %>
+
+
       <div class="pb-4 flex flex-col">
         <span class="pb-2">
           <%= f.label :name, class: 'text-xs font-bold' %>

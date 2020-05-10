@@ -1,8 +1,8 @@
 <% provide :title, @user.name %>
-<div>
+<div class="pt-4">
   <aside>
     <section class="user_info flex items-center">
-      <%= gravatar_for @user %>
+      <%= image_tag user_avatar_url(@user, size: 100), class: 'h-24 w-24 p-1 rounded-full border' %>
       <h1 class="pl-3 text-3xl font-bold tracking-tight"><%= @user.name %></h1>
     </section>
   </aside>
