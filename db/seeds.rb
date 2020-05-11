@@ -1,10 +1,12 @@
+puts 'Seeding datatbase...'
 User.delete_all
 
 User.create!(
   name: 'Example User',
   email: 'example@railstutorial.org',
   password: 'password',
-  password_confirmation: 'password'
+  password_confirmation: 'password',
+  admin: true
 )
 
 99.times do |n|

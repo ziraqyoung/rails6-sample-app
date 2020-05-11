@@ -6,6 +6,12 @@
     <div class="pl-3">
       <%= link_to user.name, user, class: 'underline hover:no-underline' %>
     </div>
+    <% if current_user.admin? && !current_user?(user) %>
+        <span>
+          <span class="px-3 text-red-600">|</span>
+          <%= link_to 'delete', user, method: :delete, data: { confirm: 'Are you sure?' } , class: 'text-red-600 underline hover:no-underline' %>
+        </span> 
+    <% end %>
   </div>
 </li>
 
