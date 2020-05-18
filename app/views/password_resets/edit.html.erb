@@ -1,0 +1,30 @@
+<% provide :title, 'Reset password' %>
+<h1 class="text-3xl font-bold text-center">Reset password</h1>
+
+<div class="max-w-screen-md mx-auto pb-8">
+  <div class="px-4 py-3 bg-gray-100 rounded-lg shadow-md">
+    <%= form_with model: @user, url: password_reset_path(params[:id]), local: true do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= hidden_field_tag :email, @user.email %>
+
+      <div class="pb-4 flex flex-col">
+        <span class="pb-2">
+          <%= f.label :password, class: 'text-xs font-bold' %>
+        </span>
+        <%= f.password_field :password, placeholder: 'Password...', class: 'px-3 py-2 w-full placeholder-gray-800 rounded-lg border bg-gray-300 focus:shadow-md focus:border-gray-500' %>
+      </div>
+
+      <div class="pb-4 flex flex-col">
+        <span class="pb-2">
+          <%= f.label :password_confirmation, class: 'text-xs font-bold' %>
+        </span>
+        <%= f.password_field :password_confrirmation, placeholder: 'Password confirmation...', class: 'px-3 py-2 w-full placeholder-gray-800 rounded-lg border bg-gray-300 focus:shadow-md focus:border-gray-500' %>
+      </div>
+
+      <div class="pt-3">
+        <%= f.submit 'Update password', class: 'px-3 py-2 bg-teal-600 leading-none text-white rounded-lg shadow-lg hover:bg-teal-700 cursor-pointer uppercase tracking-tighter' %>
+      </div>
+    <% end %>
+ </div>
+</div>

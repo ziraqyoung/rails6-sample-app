@@ -15,6 +15,7 @@
       <div class="pb-4 flex flex-col">
         <span class="pb-2">
           <%= f.label :password, class: 'text-xs font-bold' %>
+          <span class="pl-3">(<%= link_to 'forgot password', new_password_reset_path, class: 'underline hover:no-underline' %>)</span>
         </span>
         <%= f.password_field :password, placeholder: 'Password...', class: 'px-3 py-2 w-full placeholder-gray-800 rounded-lg border bg-gray-300 focus:shadow-md focus:border-gray-500' %>
       </div>
@@ -30,10 +31,8 @@
         <% end %>
       </div>
 
-
-
       <div class="pt-3">
-        <%= f.submit 'Log in', class: 'px-3 py-2 bg-teal-600 text-white rounded-lg shadow-lg hover:bg-teal-700 cursor-pointer uppercase tracking-tighter' %>
+        <%= f.submit 'Log in', class: 'px-3 py-2 bg-teal-600 leading-none text-white rounded-lg shadow-lg hover:bg-teal-700 cursor-pointer uppercase tracking-tighter' %>
       </div>
     <% end %>
 
