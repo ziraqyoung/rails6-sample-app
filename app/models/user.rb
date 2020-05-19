@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
   # or self.email = email.downcase (required during assignment)
   before_save { email.downcase! }
