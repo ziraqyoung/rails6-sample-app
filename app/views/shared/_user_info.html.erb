@@ -1,0 +1,11 @@
+<div class="flex items-center">
+  <div>
+    <%= link_to( image_tag(user_avatar_url(current_user, size: 50), class: "rounded-full object-cover"), current_user)  %>
+  </div>
+
+  <div class="flex pl-4 flex-col">
+    <h1 class="font-medium text-xl text-gray-600"><%= current_user.name %></h1>
+    <span><%= link_to 'View my profile', current_user, class: 'underline hover:no-uderline' %></span>
+    <span class="text-gray-600"><%= pluralize(current_user.microposts.count, 'micropost') %></span>
+  </div>
+</div>

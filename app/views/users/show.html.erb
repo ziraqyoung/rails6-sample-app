@@ -1,9 +1,25 @@
 <% provide :title, @user.name %>
 <div class="pt-4">
-  <aside>
-    <section class="user_info flex items-center">
-      <%= image_tag user_avatar_url(@user, size: 100), class: 'h-24 w-24 p-1 rounded-full border' %>
-      <h1 class="pl-3 text-3xl font-bold tracking-tight"><%= @user.name %></h1>
-    </section>
-  </aside>
+  <div class="block md:flex p-3 md:p-0">
+    <aside class="flex justify-start md:justify-around">
+      <section class="user_info flex">
+        <div class="w-12 h-12 md:w-24 md:h-24">
+          <%= image_tag user_avatar_url(@user, size: 100), class: 'object-cover p-1 rounded-full border' %>
+        </div>
+        <h1 class="pl-3 text-xl font-bold leading-tight tracking-tight"><%= @user.name %></h1>
+      </section>
+    </aside>
+
+    <div class="md:pl-6 w-full">
+      <% if @user.microposts.any? %>
+        <h3 class="text-xl font-bold border-b">Microposts (<%= @user.microposts.count %>)</h3>
+        <ol class="microposts">
+          <%= render @microposts %>
+        </ol>
+        <div class="my-2">
+          <%= will_paginate @microposts %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

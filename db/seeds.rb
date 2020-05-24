@@ -1,6 +1,7 @@
 puts "Seeding datatbase..."
 User.delete_all
 
+puts "Seeding users..."
 User.create!(
   name: "Example User",
   email: "example@railstutorial.org",
@@ -24,4 +25,14 @@ User.create!(
     activated: true,
     activated_at: Time.zone.now,
   )
+end
+
+puts "Seeding microposts..."
+users = User.order(:created_at).take(6)
+
+users.each do |user|
+  50.times do
+    content = Faker::Lorem.sentence(word_count: 6)
+    user.microposts.create! content: content
+  end
 end

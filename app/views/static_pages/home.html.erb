@@ -1,11 +1,33 @@
 <% provide :title, 'Home' %>
 
-<div class="flex flex-col items-center py-24">
-  <h1 class="text-5xl font-bold tracking-tighter">Welcome to the Sample App</h1>
-  <p class="text-gray-900 pt-5 text-xl font-semibold">
-  This is the homepage sample application for <a class="underline hover:no-underline" href="#">Ruby on Rails Tutorial</a> sample application
-  </p>
-  <div class="pt-6">
-    <%= link_to 'Sign up now!', signup_path, class: 'px-5 py-3 no-underline text-white bg-blue-600 rounded-lg capitalize hover:bg-blue-700 font-bold'%>
+<% if logged_in? %>
+  <div class="pt-4">
+    <div class="flex">
+      <aside class="w-1/4">
+        <section class="user_info">
+          <%= render 'shared/user_info' %>
+        </section>
+        <section class="micropost_form">
+          <%= render 'shared/micropost_form' %>
+        </section>
+      </aside>
+
+      <div class="w-3/4 pl-4">
+        <h3 class="text-xl font-bold text-gray-600">Micropost Feed</h3>
+        <%= render 'shared/feed' %>
+      </div>
+    </div>
   </div>
-</div>
+
+<% else %>
+
+  <div class="flex flex-col items-center py-24">
+    <h1 class="text-5xl font-bold tracking-tighter">Welcome to the Sample App</h1>
+    <p class="text-gray-900 pt-5 text-xl font-semibold">
+    This is the homepage sample application for <a class="underline hover:no-underline" href="#">Ruby on Rails Tutorial</a> sample application
+    </p>
+    <div class="pt-6">
+      <%= link_to 'Sign up now!', signup_path, class: 'px-5 py-3 no-underline text-white bg-blue-600 rounded-lg capitalize hover:bg-blue-700 font-bold'%>
+    </div>
+  </div>
+<% end %>

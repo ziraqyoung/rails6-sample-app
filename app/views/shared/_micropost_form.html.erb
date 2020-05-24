@@ -1,0 +1,15 @@
+<%= form_with model: @micropost, local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="pt-3">
+    <%= f.text_area :content, class: 'border rounded-md py-2 pl-3 shadow-md w-full',placeholder: 'Compone a new micropost...' %>
+  </div>
+
+  <div class="pt-3">
+    <%= f.submit 'Post', class: 'px-3 py-2 bg-teal-600 leading-none text-white rounded-lg shadow-lg hover:bg-teal-700 cursor-pointer uppercase tracking-tighter' %>
+  </div>
+
+  <div class="pt-3 text-xs" data-controller="image-upload">
+    <%= f.file_field :image, accept: "image/jpeg,image/png,image/gif",data: { target: 'image-upload.field', action: 'change->image-upload#upload' } %>
+  </div>
+<% end %>
