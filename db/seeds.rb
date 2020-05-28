@@ -1,7 +1,7 @@
 puts "Seeding datatbase..."
 User.delete_all
 
-puts "Seeding users..."
+puts "***** Seeding users..."
 User.create!(
   name: "Example User",
   email: "example@railstutorial.org",
@@ -27,7 +27,7 @@ User.create!(
   )
 end
 
-puts "Seeding microposts..."
+puts "***** Seeding microposts..."
 users = User.order(:created_at).take(6)
 
 users.each do |user|
@@ -36,3 +36,13 @@ users.each do |user|
     user.microposts.create! content: content
   end
 end
+
+puts '***** Seeding user relationship...'
+users = User.all
+user = users.first
+
+following = users[2..50]
+followers = users[3..40]
+
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

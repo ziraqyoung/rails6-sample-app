@@ -1,0 +1,5 @@
+var follow_form = document.querySelector('#follow_form');
+var followers = document.querySelector('#followers');
+
+follow_form.innerHTML = "<%= escape_javascript(render 'users/unfollow') %>"
+followers.innerHTML = "<%= @user.followers.count %>"

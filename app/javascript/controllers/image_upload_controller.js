@@ -3,10 +3,6 @@ import { Controller } from 'stimulus';
 export default class extends Controller {
   static targets = ['field']
 
-  connect() {
-    console.log('connected');
-  }
-
   upload() {
     // var image_field = document.querySelector('#micropost_image');
     var image_field = this.fieldTarget;
