@@ -19,7 +19,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test "name should no be too long" do
+  test "name should not be too long" do
     @user.name = "a" * 51
     assert_not @user.valid?
   end
@@ -74,7 +74,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?(:remember, '')
   end
 
-  test 'associated microposts shold be destroy' do
+  test 'associated microposts should be destroy' do
     @user.save
     @user.microposts.create! content: 'Lorem ipsum'
     assert_difference 'Micropost.count', -1 do
@@ -91,5 +91,25 @@ class UserTest < ActiveSupport::TestCase
     assert archer.followers.include?(michael)
     michael.unfollow(archer)
     assert_not michael.following?(archer)
+  end
+
+  test 'feed should have the right microposts' do
+    michael = users(:michael)
+    archer = users(:archer)
+    lana = users(:lana)
+    # posts from followed users
+    lana.microposts.each do |post_following|
+      assert michael.feed.include?(post_following)
+    end
+
+    # Posts from self
+    michael.microposts.each do |post_self|
+      assert michael.feed.include?(post_self)
+    end
+
+    # Posts from unfollowed user
+    archer.microposts.each do |post_unfollowed|
+      assert_not michael.feed.include?(post_unfollowed)
+    end
   end
 end

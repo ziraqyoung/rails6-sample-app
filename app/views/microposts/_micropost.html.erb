@@ -22,7 +22,7 @@
       <div class="border -mb-1 rounded-md bg-gray-400 px-2 py-1">
         <span class="content"><%= micropost.content %></span>
         <div class="pt-1">
-          <%= image_tag micropost.display_size if micropost.image.attached? %>
+          <%= image_tag(micropost.display_size, class: 'w-full object-cover') if micropost.image.attached? %>
         </div>
       </div>
     </div>
